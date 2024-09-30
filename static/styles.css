@@ -1,0 +1,110 @@
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: #001f3f; /* Blueish black */
+    padding: 20px;
+    margin: 0;
+    color: white; /* White text */
+}
+
+h1 {
+    color: white; /* White text for header */
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#controls-container {
+    display: flex;
+    flex-direction: column; /* Arrange controls and plot area vertically */
+    align-items: center;
+}
+
+#controls {
+    display: flex;
+    flex-direction: column; /* Arrange controls vertically */
+    margin-bottom: 20px;
+    gap: 10px;
+    padding: 15px;
+    background-color: #11273f; /* Button background color */
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+select, input, button {
+    padding: 10px 15px;
+    margin: 5px;
+    font-size: 1rem;
+    border: 2px solid #ffffff; /* White border */
+    border-radius: 5px;
+    background-color: #b3b3b3; /* Button background color */
+    color: white; /* White text for controls */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px; /* Reduced padding for less width */
+    box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    transform: scale(0.98);
+    box-shadow: none;
+}
+
+#plot-area {
+    width: 800px;
+    height: 600px;
+    margin: 30px auto;
+    border: 2px solid #ffffff; /* White border */
+    background-color: #ffffff; /* Dark background for plot area */
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#plot-area::before {
+    content: "Click on the plot area to select centroids (Manual)";
+    color: #ffffff; /* White text for plot area instruction */
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.5;
+    pointer-events: none;
+    display: none;
+}
+
+.manual-active #plot-area::before {
+    display: block;
+}
+
+@media (max-width: 900px) {
+    #plot-area {
+        width: 100%;
+        height: 400px;
+    }
+
+    select, input, button {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 0.9rem;
+    }
+}
